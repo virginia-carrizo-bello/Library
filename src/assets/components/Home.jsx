@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import Book from "./Book";
+import Filter from "./Filter";
 import ToRead from "./ToRead";
+import ListBook from "./ListBook";
+import './book.css'
 
 
 export default function Home() {
@@ -11,19 +14,17 @@ export default function Home() {
     const [listBooks, setListBooks] = useState(() => {
         const storedBooks = localStorage.getItem("selectedBooks");
         return storedBooks ? JSON.parse(storedBooks) : [];
-      })
+    })
 
     useEffect(() => {
         fetch(`https://raw.githubusercontent.com/midudev/pruebas-tecnicas/main/pruebas/01-reading-list/books.json`)
             .then(response => response.json())
             .then((json) => {
-                /* console.log(json.library) */;
+                /* console.log(json.library); */
                 setBooks(json.library);
             })
             .catch(error => console.log(error));
     }, []);
-
-
 
     useEffect(() => {
         localStorage.setItem("selectedBooks", JSON.stringify(listBooks));
@@ -33,16 +34,19 @@ export default function Home() {
         setSelectedBook(book);
         setShow(true);
         setListBooks([...listBooks, book]);
+        setBooks(books.filter((b) => b !== book))
     };
+
     const handleCloseShow = (book) => {
         /* setSelectedBook(null); */
         /* setShow(false); */
-        setListBooks(listBooks.filter((b)=>b!==book))
-        console.log(listBooks)
+        setListBooks(listBooks.filter((b) => b !== book))
+        setBooks([...books, book])
     };
-
+ 
     return (
         <>
+            <Filter books={books} handleOpenShow={handleOpenShow}/>
             {show && selectedBook && (
                 <ToRead
                     handleCloseShow={handleCloseShow}
@@ -51,18 +55,6 @@ export default function Home() {
                     listBooks={listBooks}
                 />
             )}
-            <div className="book-container">
-                {books.map((b, key) => {
-                    return (
-                        <div key={key}>
-                            <button className="boton" onClick={() => handleOpenShow(b)}>
-                                <Book booktitle={b.book.title} bookcover={b.book.cover} />
-                            </button>
-                        </div>
-                    )
-                })}
-            </div >
-
 
         </>
 

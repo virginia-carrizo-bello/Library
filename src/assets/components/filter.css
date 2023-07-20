@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4ede1; /* Beige */
+  }
+  
+  .filter-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9; /* Blanco */
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .filter-bar input[type="text"] {
+    padding: 8px;
+    border: 1px solid #d8d8d8;
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  .filter-bar button {
+    padding: 8px 16px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .filter-bar button.filter-btn {
+    background-color: #8c6455; /* Marrón */
+    color: #fff;
+  }
+  
+  .filter-bar button.filter-btn:hover {
+    background-color: #a47a67; /* Marrón más claro */
+  }
+  
