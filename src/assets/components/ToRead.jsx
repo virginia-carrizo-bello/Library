@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react"
+import './toread.css'
+
 
 export default function ToRead({ handleCloseShow, listBooks }) {
 
-    console.log(listBooks)
     return (
-        <div className="book-container">
+        <div className="modal-container">
             {listBooks.map((b, key) => {
                 return (
-                    <div className={`modal show`} key={key}>
+                    <div className="modal" key={key}>
                         <div className="modal-content">
+                            <button onClick={()=>handleCloseShow(b)}>X</button>
                             <div className="book">
                                 <img src={b.book.cover} alt="Libro" />
                                 <h2>{b.book.title}</h2>
+
                             </div>
 
                         </div>
@@ -19,7 +22,7 @@ export default function ToRead({ handleCloseShow, listBooks }) {
                     </div>
                 )
             })}
-            <button onClick={handleCloseShow}>Cerrar</button>
+
         </div>
 
     )
