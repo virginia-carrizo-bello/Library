@@ -1,33 +1,27 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f5f1e9;
-    margin: 0;
-    padding: 20px;
+  .books{
+    background-color: #f7f3e9; 
   }
-
-  h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 30px;
-  }
-
-  /* Estilos para los libros */
+  
+  
   .book-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    
   }
 
   .book {
     width: 200px;
-    height: 300px;
-    background-color: #fff;
-    border: 1px solid #d0ccc6;
+    height: 320px;
+    border: 0px solid #d0ccc6;
     padding: 20px;
     margin: 2px;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
+    background-color: #e7dbbd;
+    font-family: unset;
+    color: #503f14;
   }
 
   .book:hover {
@@ -37,19 +31,25 @@ body {
   .book img {
     max-width: 150px;
     max-height: 200px;
-    margin-bottom: 10px;
-  }
-
-  .book h2 {
-    font-size: 18px;
-    color: #333;
-    margin-bottom: 5px;
   }
 
   .book p {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 0;
+    font-family: 'Math';
+    margin: 5%;
+  }
+
+  .titulo-libro {
+    font-size: 16px;
+
+  }
+  .genero-libro {
+    font-size: 13px;
+
+  }
+
+  .title{
+    font-family: 'Math';
+    color:#904a33
   }
 
   .book a {
@@ -62,11 +62,32 @@ body {
   }
 
   .boton {
-    background-color: antiquewhite;
-    padding: 0%;
     border: none;
+    background-color: #f7f3e9; 
+    padding: 3px;
   }
 
   p {
-    color:#333
+    color:#251300
+  }
+
+  .img-book{
+    width: 50px;
+    margin: 15px;
+  }
+
+  .img-lupa{
+    width: 40px;
+    margin: 15px;
+  }
+
+  .contenedor-title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .title-filter{
+    font-family: 'Math';
+    color:#904a33
   }

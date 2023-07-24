@@ -1,12 +1,20 @@
-import { useEffect, useState } from "react";
-import Book from "./Book";
-import Filter from "./Filter";
-import ToRead from "./ToRead";
-import ListBook from "./ListBook";
-import './book.css'
+import React, { useEffect, useState } from 'react';
+import { Layout, theme } from 'antd';
+import ToRead from './ToRead';
+import Filter from './Filter';
 
 
-export default function Home() {
+const { Sider } = Layout;
+
+const Home = () => {
+    const [collapsed, setCollapsed] = useState(false);
+    const {
+        token: { colorBgContainer },
+    } = theme.useToken();
+
+    const toggleCollapse = () => {
+        setCollapsed(!collapsed);
+    };
 
     const [books, setBooks] = useState([]);
     const [show, setShow] = useState(false);
@@ -20,7 +28,7 @@ export default function Home() {
         fetch(`https://raw.githubusercontent.com/midudev/pruebas-tecnicas/main/pruebas/01-reading-list/books.json`)
             .then(response => response.json())
             .then((json) => {
-                /* console.log(json.library); */
+
                 setBooks(json.library);
             })
             .catch(error => console.log(error));
@@ -38,25 +46,27 @@ export default function Home() {
     };
 
     const handleCloseShow = (book) => {
-        /* setSelectedBook(null); */
-        /* setShow(false); */
+
         setListBooks(listBooks.filter((b) => b !== book))
         setBooks([...books, book])
     };
- 
+
     return (
-        <>
-            <Filter books={books} handleOpenShow={handleOpenShow}/>
-            {show && selectedBook && (
-                <ToRead
-                    handleCloseShow={handleCloseShow}
-                    booktitle={selectedBook.book.title}
-                    bookcover={selectedBook.book.cover}
-                    listBooks={listBooks}
-                />
-            )}
+        <Layout >
+            <Sider style={{
+                backgroundColor: '#dfcfa7'
+            }} 
+            trigger={null} collapsible collapsed={collapsed}>
+                <ToRead handleCloseShow={handleCloseShow}
+                    listBooks={listBooks} collapsed={collapsed} />
+            </Sider>
+            <Layout>
+                <Filter collapsed={collapsed} toggleCollapse={toggleCollapse} colorBgContainer={colorBgContainer}
+                    books={books} handleOpenShow={handleOpenShow} />
 
-        </>
-
+            </Layout>
+        </Layout>
     );
-}
+};
+
+export default Home;

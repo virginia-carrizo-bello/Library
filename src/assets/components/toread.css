@@ -1,43 +1,43 @@
-.modal-container {
-    display: flex;
-  }
+.sidebar {
+  display: flex;
+  align-items: center;
+  margin: 2%;
   
-  .modal {
+}
 
-    background-color: #fff;
+.sidebar-book {
+  width: 100%;
+  border-radius: 5%;
 
+}
 
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+.sidebar-oculta{
+  display: flex;
+  align-items: center;
   
-  .modal img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-  }
-  
-  .modal h2 {
-    font-size: 18px;
-    color: #333;
-    margin-bottom: 5px;
-  }
-  
-  .modal p {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 0;
-  }
-  
-  .modal button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .modal button:hover {
-    background-color: #0056b3;
-  }
+}
+.sidebar-book-oculto {
+  width: 79px;
+  border-radius: 5%;
+ 
+}
+
+.pendiente {
+  font-family: 'Math';
+  color: #904a33;
+  font-size: 120%;
+  font-weight: 700;
+  margin-left: 5%;
+}
+
+.borrar{
+  width: 20%;
+  height: 31px;
+  padding: 0;
+  background-color: #f7f1e9ab;
+  border-radius: 50%;
+  border-style: dashed;
+  color: #c2390c;
+  border-color: #965f4d;
+  margin: 3%;
+}
