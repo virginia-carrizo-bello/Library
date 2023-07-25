@@ -6,7 +6,7 @@ import './filter.css';
 import { SearchOutlined } from '@ant-design/icons';
 const { Content } = Layout;
 
-const Filter = ({ collapsed, toggleCollapse, colorBgContainer, books, handleOpenShow }) => {
+const Filter = ({ collapsed, toggleCollapse, books, handleOpenShow }) => {
 
     const [booksFilter, setBooksFilter] = useState(books);
     const [showAll, setShowAll] = useState(true);

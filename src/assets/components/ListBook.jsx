@@ -12,7 +12,7 @@ export default function ListBook({ books, booksFilter, handleOpenShow, filter })
                     <img className='img-book' src="https://images.vexels.com/media/users/3/271649/isolated/preview/3a1938ea55f27c31d53b585fcebdcd5e-icono-de-dibujos-animados-de-libro-abierto.png" alt="libro" />
                     <h2 className="title" >Stock libros: {books.length}</h2>
                 </div>
-                {filter ? <div className="contenedor-title" > <img className='img-lupa' src="https://assets.stickpng.com/images/5c790123003fa702a1d2795b.png" alt="lupa" />
+                {filter ? <div className="contenedor-title" > <img className='img-lupa' src="src\assets\public\lupa.png" alt="lupa" />
                     <h2 className="title-filter">Cantidad de libros de {filter}: {booksFilter.length} </h2> </div> : ""}
             </div>
             <div className="book-container">
